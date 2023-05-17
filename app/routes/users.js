@@ -10,4 +10,12 @@ router.get('/user-list', function(req, res, next) {
   });
 });
 
+/* GET user datas. */
+router.get('/user/:id', function(req, res, next) {
+  db.query("SELECT * FROM users WHERE id = ?", [req.params.id], function (err, data, fields) {
+    if (err) throw err;
+    res.render('user', { title: 'User Data', userData: data});
+  });
+});
+
 module.exports = router;
