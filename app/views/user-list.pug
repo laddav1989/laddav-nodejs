@@ -2,6 +2,7 @@ extends layout
 
 block content
     h1= title
-    ul
     each element in userData
-        li= element.first_name+' - '+element.last_name+' - '+element.email
+        div= element.first_name+' - '+element.last_name+' - '+element.email
+        a(href='/users/'+element.id) Megnyit
+        br
